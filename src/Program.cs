@@ -1,4 +1,5 @@
-﻿using SecurityPriceAlert.Communication;
+﻿using Microsoft.Extensions.Configuration;
+using SecurityPriceAlert.Communication;
 
 namespace SecurityPriceAlert;
 
@@ -6,8 +7,10 @@ class Program
 {
     static async Task Main(string[] args)
     {
-        SmtpCredentials credentials =
-            new SmtpCredentials("smtp.gmail.com", 587, "inoamailalert@gmail.com", "bbsacnyvffjygdur");
+        var config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
+
+        SmtpCredentials? credentials = config.GetRequiredSection("SmtpCredentials").Get<SmtpCredentials>();
+        if (credentials == null) return;
         MailHandler mailHandler = new MailHandler(credentials);
         await mailHandler.SendMailAsync("inoamailalert@gmail.com", "email test", "body.......");
     }
