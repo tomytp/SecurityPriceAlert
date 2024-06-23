@@ -11,12 +11,12 @@ class Program
 
         AppSettings? settings = config.GetRequiredSection("AppSettings").Get<AppSettings>();
         if (settings == null) return;
-        BrApiHandler brApiHandler = new BrApiHandler();
+
+        SecurityMonitor securityMonitor = new SecurityMonitor(settings.BrApiToken);
         // MailHandler mailHandler = new MailHandler(settings.SmtpCredentials);
         // await mailHandler.SendMailAsync(settings.DestinationEmailAddress, "email test", "body.......");
-        (await brApiHandler.GetSecuritiesBySymbol("PETR4", settings.BrApiToken))?.stocks.ForEach(Console.WriteLine);
-        Console.WriteLine("--------");
-        (await brApiHandler.GetSecuritiesBySymbol("PETRS4", settings.BrApiToken))?.stocks.ForEach(Console.WriteLine);
+        Console.WriteLine(await securityMonitor.IsValidSymbol("PETR4"));
+        Console.WriteLine(await securityMonitor.IsValidSymbol("PETRS4"));
     }
 }
 
