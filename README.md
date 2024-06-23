@@ -30,7 +30,7 @@ Simple stock price (b3 only) alerts on email.
 
 The application expects three command-line arguments:
 
-1. `securitySymbol`: The symbol of the security for which you want to monitor the price. ("For a list of available symbols, check the options [here](https://www.dadosdemercado.com.br/acoes) under the 'Ticker' column)
+1. `securitySymbol`: The symbol of the security for which you want to monitor the price. (For a list of available symbols, check the options [here](https://www.dadosdemercado.com.br/acoes) under the 'Ticker' column)
 2. `sellTriggerPrice`: The price threshold for selling the security (you will be notified if the price rises above this limit).
 3. `buyTriggerPrice`: The price threshold for buying the security (you will be notified if the price falls below this limit).
 
