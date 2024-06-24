@@ -67,7 +67,7 @@ class Program
         while (true)
         {
             await securityMonitor.CheckSecurity(securitySymbol, sellTriggerPrice, buyTriggerPrice);
-            await Task.Delay(10000); // Refresh rate de 10 segundos para limitar o consumo da API
+            await Task.Delay(1800000); // Refresh rate de 30 minutos por ser a taxa de atualizacao da api
         }
     }
 }

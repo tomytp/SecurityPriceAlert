@@ -22,7 +22,7 @@ Simple stock price (b3 only) alerts on email.
 }
 ```
 
-4. Note that the BrApiToken provided is for example purposes and is only allowed 15000 requests per month (≈41 hours of program execution with request interval of 10 seconds).
+4. Note that the BrApiToken provided is for example purposes and is only allowed 15000 requests per month and only updates every 30 minutes.
 5. Build and run the project. 
 
 
